@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Web Design</title>
+    <!-- bootstrap icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <!-- external css -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="flex-col">
+    <!-- header -->
+    <header class="full-width flex-col">
+      <div class="nav-full full-width flex-col hdfc">
+        <nav class="section-container hdfr">
+          <i class="bi bi-chevron-left"></i>
+          <i class="bi bi-three-dots-vertical"></i>
+        </nav>
+      </div>
+      <!-- cover -->
+      <section id="cover" class="full-width flex-col">
+        <!-- cover image -->
+        <!-- mobile cover -->
+        <div class="crop-mobile-cover hdfc">
+          <img
+            id="coverMobile"
+            src="./assets/bg-mobile.png"
+            alt="cover background"
+          />
+        </div>
+
+        <!-- desktop cover -->
+        <div class="crop-desktop-cover hmfc">
+          <img id="coverMobile" src="./assets/bg.png" alt="cover background" />
+        </div>
+
+        <div id="bookmarkContainer" class="section-container">
+          <!-- bookmark -->
+          <div id="bookmarkBG" class="flex-col">
+            <i class="bi bi-bookmark-fill"></i>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <!-- main -->
+    <main class="full-width flex-col">
+      <!-- desktop main view -->
+      <div class="desktop-main section-container flex-col">
+        <!-- left col -->
+        <div class="left-col flex-col">
+          <!-- Title -->
+          <section id="title" class="section-container flex-col">
+            <!-- title -->
+            <div class="title-desc flex-col">
+              <div class="event flex-row flex-wrap">
+                <h1 id="eventTitle">NFT Workshop</h1>
+                <h2 id="eventStatus" class="hdfr">Ended</h2>
+              </div>
+              <p>Learn how to buy NFT in India. All about NFT marketplaces</p>
+            </div>
+            <div class="posted-on flex-row flex-wrap">
+              <div id="titleHostCard" class="host-card flex-row">
+                <img src="./assets/host-pp.png" alt="pp of user" />
+                <h3>SoulCurryArt</h3>
+              </div>
+              <div class="post-date"><h3>posted 1 month ago</h3></div>
+            </div>
+            <div class="event-datetime hdfr flex-wrap">
+              <div class="date">
+                <h3>Date</h3>
+                <p>05 Aug 2022</p>
+              </div>
+              <div class="time">
+                <h3>Time</h3>
+                <p>5:30pm</p>
+              </div>
+              <div class="duration">
+                <h3>Duration</h3>
+                <p>60min</p>
+              </div>
+            </div>
+          </section>
+          <section id="includes" class="section-container flex-col">
+            <h2>This event includes</h2>
+            <ul class="include-list flex-col">
+              <li>
+                <img src="./assets/thumb.png" alt="" /> Direct interaction with
+                the instructor
+              </li>
+              <li>
+                <img src="./assets/mobile.png" alt="" /> Access on mobile and
+                web
+              </li>
+              <li>
+                <img src="./assets/video-cam.png" alt="" /> Session recording
+                after the workshop
+              </li>
+              <li>
+                <img src="./assets/hourglass.png" alt="" /> 1 hour live session
+              </li>
+            </ul>
+          </section>
+          <!-- about workshop -->
+          <section id="aboutWorkshop" class="section-container flex-col">
+            <h2>About the workshop</h2>
+            <p>
+              This workshop will provide knowledge about the Introduction to NFT
+              and how to transition from traditional art into NFT. The creator
+              will talk about new paradigm shift in artistic acceptance, and the
+              future of digital art....
+            </p>
+            <div class="read-more flex-row">
+              <h3>Read more</h3><i class="bi bi-chevron-down"></i>
+            </div>
+          </section>
+          <!-- about host -->
+          <section id="aboutHost" class="section-container hdfc">
+            <h2>About the Host</h2>
+            <div id="aboutHostCard" class="host-card flex-row">
+              <div class="host-card-icon flex-row">
+                <img src="./assets/host-pp.png" alt="pp of user" />
+                <div class="username">
+                  <h3>SoulCurryArt</h3>
+                  <h4>@soulcurryart</h4>
+                </div>
+              </div>
+              <div class="add-btn flex-row"><i class="bi bi-plus"></i></div>
+            </div>
+            <p>
+              Modern Cubist abstract artist, NFT artist, Art educator & bridging
+              the Contemporary with the Digital art realms
+            </p>
+            <h3>Read full story</h3>
+          </section>
+          <!-- faq -->
+          <section id="faq" class="section-container flex-col">
+            <h2>Frequently asked questions</h2>
+            <p>find all your answers related to this event.</p>
+            <ul class="flex-col">
+              <li class="flex-row">
+                <h4>Who can participate in this workshop?</h4>
+                <i class="bi bi-chevron-down"></i>
+              </li>
+              <li class="flex-row">
+                <h4>What are the prerequisites for joining this workshop?</h4>
+                <i class="bi bi-chevron-down"></i>
+              </li>
+              <li class="flex-row">
+                <h4>can i interact with the host at the workshop?</h4>
+                <i class="bi bi-chevron-down"></i>
+              </li>
+              <li class="flex-row">
+                <h4>is it pre-recorded or live workshop?</h4>
+                <i class="bi bi-chevron-down"></i>
+              </li>
+            </ul>
+          </section>
+          <!-- enquiry -->
+          <section id="enquirySection" class="section-container flex-col">
+            <h3>Don't see the answer you're looking for?</h3>
+            <h2>Post your question</h2>
+            <p>
+              Your question might be answered by the host, speakers or GoSocial
+              team
+            </p>
+            <form action="" id="enquiry" class="flex-col">
+              <textarea
+                name="questions"
+                id="questions"
+                placeholder="please submit your questions"
+              ></textarea>
+              <button type="submit" class="purple-button">Post</button>
+            </form>
+          </section>
+          
+        </div>
+
+        <div class="right-col hmfc">
+          <!-- about host -->
+          <section id="aboutHost" class="section-container flex-col desktop-card">
+            <h2 class="hdfr" >About the Host</h2>
+            <div id="aboutHostCard" class="host-card flex-row">
+              <div class="host-card-icon flex-row">
+                <img src="./assets/host-pp.png" alt="pp of user" />
+                <div class="username">
+                  <h3>SoulCurryArt</h3>
+                  <h4>@soulcurryart</h4>
+                </div>
+              </div>
+              <div class="add-btn flex-row"><i class="bi bi-plus"></i></div>
+            </div>
+            <p>
+              Modern Cubist abstract artist, NFT artist, Art educator & bridging
+              the Contemporary with the Digital art realms
+            </p>
+            <div class="read-more flex-row">
+              <h3>Read more</h3>
+              <i class="bi bi-chevron-down"></i>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- test -->
+    <!-- <section class="section-container flex-row" id="test">
+      <h1>test</h1>
+      <h2>test2</h2>
+    </section> -->
+
+    <!-- footer -->
+    <footer class="full-width flex-col">
+      <div class="section-container flex-row">
+        <div class="event-datetime hmfr flex-wrap">
+          <div class="date">
+            <h3>Date</h3>
+            <p>05 Aug 2022</p>
+          </div>
+          <div class="time">
+            <h3>Time</h3>
+            <p>5:30pm</p>
+          </div>
+
+          <div class="duration">
+            <h3>Duration</h3>
+            <p>60min</p>
+          </div>
+        </div>
+
+        <!-- price -->
+        <div class="registration-container flex-row">
+          <div class="price">
+            <p>Price</p>
+            <h1>Rs. 350</h1>
+          </div>
+          <button class="purple-button" id="registerBtn">Register Now</button>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

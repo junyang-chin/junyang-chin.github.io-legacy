@@ -1,0 +1,248 @@
+/* MOBILE RES */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  /* outline: 1px solid red; */
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  /* background-color: lightblue; */
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.section-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  /* height: 100%; */
+}
+
+/* main */
+main {
+  height: 100vh;
+  /* background-color: lightpink; */
+}
+main > section {
+  height: 100%;
+  /* background-color: lightgreen; */
+  align-items: stretch;
+}
+main > section > .section-container {
+  align-items: stretch;
+  padding-top: 20px;
+}
+.col-left {
+  padding-inline: 1%;
+  /* background-color: violet; */
+  width: 70%;
+}
+
+/* video */
+.player-window {
+  position: sticky;
+  top: 10px;
+  width: 90%;
+  min-height: 100px;
+  /* height: 60%; */
+  justify-content: space-between;
+  padding: 30px;
+  /* background-color: rgba(202, 202, 202, 0.372); */
+  border-radius: 20px;
+  /* overflow: scroll; */
+}
+.video-title-banner {
+  width: 100%;
+  padding: 10px 40px 15px;
+}
+
+.video-title-banner h1 {
+  font-size: 1.2rem;
+}
+#videoPlayer {
+  position: relative;
+  min-width: 80%;
+  min-height: 80%;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+  background-color: black;
+}
+.player-window > ul {
+  width: 100%;
+  max-width: 650px;
+  height: 70px;
+  list-style: none;
+
+  /* background: gold; */
+}
+
+#volBar {
+  min-width: 70px;
+  width: 20%;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+#volBarOverlay {
+  min-width: 100px;
+  width: 100%;
+  height: 40px;
+  background-color: rgba(108, 106, 106, 0.68);
+  position: relative;
+  right: 0%;
+}
+.player-window ul{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.player-btn {
+  width: 5%;
+  min-width: 50px;
+  height: 40px;
+  background-color: rgba(108, 106, 106, 0.68);
+  border-radius: 2px;
+  border-style: none;
+  transform: all 300ms;
+}
+
+.player-btn .bi {
+  font-size: 1.5rem;
+}
+
+#playIcon {
+  display: block;
+}
+#pauseIcon {
+  display: none;
+}
+.player-btn:hover {
+  transform: scale(1.1);
+  /* color: rgba(255, 255, 255, 0.662); */
+  cursor: pointer;
+}
+
+#muteIconStatus {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 10%;
+  right: 15%;
+  background-color: red;
+  border-radius: 50%;
+  z-index: 1;
+  font-size: 2rem;
+}
+
+/* right column */
+.selection-pane {
+  width: 30%;
+  /* height: 100%; */
+  /* background-color: lightcoral; */
+}
+
+.video-cards {
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 90%;
+  height: 120px;
+  background-color: white;
+  gap: 20px;
+  padding: 20px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.video-cards:hover {
+  background-color: rgb(0, 0, 0, 0.2);
+  transition: all 100ms;
+}
+.video-cards img {
+  max-width: 30%;
+  /* height: 100%; */
+}
+
+.video-cards h1 {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+/* display none in mobile display flex in desktop */
+.hmfr,
+.hmfc {
+  display: none;
+}
+
+/* display none in desktop display flex in mobile */
+.hdfr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.hdfc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* DESKTOP RES */
+@media screen and (min-width: 600px) {
+  /* display none in mobile display flex in desktop */
+  .hmfr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space=space-between;
+    align-items: center;
+  }
+
+  .hmfc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space=space-between;
+    align-items: center;
+  }
+
+  /* display none in desktop display flex in mobile */
+  .hdfr,
+  .hdfc {
+    display: none;
+  }
+}

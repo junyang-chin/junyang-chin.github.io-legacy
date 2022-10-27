@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Player</title>
+    <!-- bootstrap icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <!-- external css -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="flex-col">
+    <main class="full-width flex-col">
+      <section class="full-width flex-col">
+        <div class="section-container flex-row">
+          <div id="#video" class="col-left flex-col">
+            <div class="player-window flex-col">
+              <video id="videoPlayer" width="100%">
+                <source src="" />
+              </video>
+              <div id="muteIconStatus" class="flex-col">
+                <i class="bi bi-volume-mute-fill"></i>
+              </div>
+              <div class="video-title-banner">
+                <h1 id="playerWindowTitle">Title here</h1>
+              </div>
+              <ul class="flex-row">
+                <li>
+                  <button class="player-btn" onclick="playerController(0)">
+                    <i id="playIcon" class="bi bi-play-fill"></i>
+                    <i id="pauseIcon" class="bi bi-pause-fill"></i>
+                  </button>
+                </li>
+                <li>
+                  <button class="player-btn" onclick="playerController(1)">
+                    <i class="bi bi-arrow-counterclockwise"></i>
+                  </button>
+                </li>
+                <li>
+                  <button class="player-btn" onclick="playerController(2)">
+                    <i class="bi bi-volume-down-fill"></i>
+                  </button>
+                </li>
+                <div id="volBar"><div id="volBarOverlay"></div></div>
+                <li>
+                  <button class="player-btn" onclick="playerController(3)">
+                    <i class="bi bi-volume-up-fill"></i>
+                  </button>
+                </li>
+                <li>
+                  <button class="player-btn" onclick="playerController(4)">
+                    <i id="muteIcon" class="bi bi-volume-mute-fill"></i>
+                  </button>
+                </li>
+                <li>
+                  <button class="player-btn" onclick="getIndex(-1)">
+                    <i class="bi bi-chevron-left"></i>
+                  </button>
+                </li>
+                <li>
+                  <button class="player-btn" onclick="getIndex(1)">
+                    <i class="bi bi-chevron-right"></i>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-right selection-pane flex-col">
+            <div class="video-cards flex-row" onclick="showVideo(0)">
+              <img src="./assets/t-vid1.png" alt="t-vid1" />
+              <h1>Flex Seal Demo</h1>
+            </div>
+            <div class="video-cards flex-row" onclick="showVideo(1)">
+              <img src="./assets/t-vid2.png" alt="t-vid2" />
+              <h1>Video of Jellyfish in Aquarium</h1>
+            </div>
+            <div class="video-cards flex-row" onclick="showVideo(2)">
+              <img src="./assets/t-vid3.png" alt="t-vid3" />
+              <h1>Gnome Demo</h1>
+            </div>
+            <div class="video-cards flex-row" onclick="showVideo(3)">
+              <img src="./assets/t-vid4.png" alt="t-vid4" />
+              <h1>Raining Street Video Demo</h1>
+            </div>
+            <div class="video-cards flex-row" onclick="showVideo(4)">
+              <img src="./assets/t-vid5.png" alt="t-vid5" />
+              <h1>Beach Waves Demo</h1>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+
+<!-- js -->
+<script>
+  // player
+  var videoPlayer = document.querySelector("#videoPlayer");
+  var volBarOverlay = document.querySelector("#volBarOverlay");
+  // volume bar
+  const updateVolumeBar = () => {
+    volBarOverlay.style.right = (1 - videoPlayer.volume) * 100 + "%";
+    volBarOverlay.style.transition = "all 300ms";
+    // console.log(document.querySelector("#volBarOverlay").style);
+  };
+
+  // define function to reset play button
+  const resetPlayBtn = () => {
+    document.querySelector("#pauseIcon").style.display = "none";
+    document.querySelector("#playIcon").style.display = "block";
+  };
+  // define function for videoPlayer
+  const playerController = (param) => {
+    switch (param) {
+      case 0:
+        if (!videoPlayer.paused) {
+          resetPlayBtn();
+          videoPlayer.pause();
+        } else {
+          videoPlayer.play();
+          document.querySelector("#playIcon").style.display = "none";
+          document.querySelector("#pauseIcon").style.display = "block";
+        }
+        console.log("play");
+        break;
+      case 1: {
+        videoPlayer.currentTime = 0;
+        console.log("reset");
+        break;
+      }
+      case 2: {
+        if (videoPlayer.volume >= 0.1) {
+          videoPlayer.volume -= 0.1;
+          updateVolumeBar();
+        }
+
+        console.log("vd");
+        break;
+      }
+      case 3: {
+        if (videoPlayer.volume <= 0.9) {
+          videoPlayer.volume += 0.1;
+          updateVolumeBar();
+        }
+        console.log("vu");
+        break;
+      }
+      case 4: {
+        // bitwise xor if the two values are different then the value is 1
+        // videoPlayer.muted ^= 1;
+        if (!videoPlayer.muted) {
+          videoPlayer.muted = 1;
+          document.querySelector("#muteIconStatus").style.display = "flex";
+        } else {
+          videoPlayer.muted = 0;
+          document.querySelector("#muteIconStatus").style.display = "none";
+        }
+        updateVolumeBar();
+        console.log("mu");
+        break;
+      }
+    }
+  };
+
+  // video slider
+  var videoDict = {
+    0: ["assets/vid1.mp4", "Flex Seal Demo"],
+    1: ["assets/vid2.mp4", "Video of Jellyfish in Aquarium"],
+    2: ["assets/vid3.mp4", "Gnome Demo"],
+    3: ["assets/vid4.mp4", "Raining Street Video Demo"],
+    4: ["assets/vid5.mp4", "Beach Waves Demo"],
+  };
+
+  var videoList = Object.keys(videoDict).length;
+  // console.log("videolist", videoList);
+  // console.log(videoList.length);
+  var currentIndex = 0;
+
+  const getIndex = (param) => {
+    currentIndex += param;
+    // console.log('update',currentIndex)
+    // if exceed lenght go back to first vid
+    if (currentIndex > videoList - 1) {
+      currentIndex = 0;
+      // console.log('return', currentIndex)
+    }
+    // if negative go to last vid
+    else if (currentIndex < 0) {
+      currentIndex = videoList - 1;
+      // console.log('return', currentIndex)
+    } else {
+      // console.log('return',currentIndex)
+    }
+
+    // console.log('--')
+    showVideo(currentIndex);
+  };
+
+  // define the object
+  var videoPlayer = document.querySelector("#videoPlayer");
+  var playerWindowTitle = document.getElementById("playerWindowTitle");
+  // console.log(playerWindowTitle);
+
+  const showVideo = (index) => {
+    console.log(videoDict[index][0]);
+    // change video source
+    videoPlayer.src = videoDict[index][0];
+    // change video title in player window
+    // console.log(videoDict[index][1]);
+    playerWindowTitle.innerHTML = videoDict[index][1];
+    // reset play button
+    resetPlayBtn();
+    // videoPlayer.type = "video/mp4"
+  };
+
+  //  initialise show first video
+  showVideo(0);
+</script>
